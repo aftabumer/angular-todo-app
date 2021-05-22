@@ -1,0 +1,20 @@
+<li class="list-group-item d-flex">
+  <div>
+    <h4 [ngClass]="{ strike: !todo.active }">{{ todo.title }},</h4>
+    <p [ngClass]="{ strike: !todo.active }">{{ todo.description }}</p>
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="todo{{ i }}"
+        (click)="onCheckboxClick(todo)"
+        [checked]="!todo.active"
+      />
+      <label class="form-check-label" for="todo{{ i }}">Done</label>
+    </div>
+  </div>
+
+  <div class="mx-5">
+    <button class="btn btn-danger" (click)="onClick(todo)">Delete</button>
+  </div>
+</li>
