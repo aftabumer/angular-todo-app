@@ -10,7 +10,12 @@
         (click)="onCheckboxClick(todo)"
         [checked]="!todo.active"
       />
-      <label class="form-check-label" for="todo{{ i }}">Done</label>
+      <label class="form-check-label" for="todo{{ i }}">
+        <ng-template [ngIf]="todo.active" [ngIfElse]="unChecked">
+          Complete
+        </ng-template>
+        <ng-template #unChecked> not complete </ng-template>
+      </label>
     </div>
   </div>
 
